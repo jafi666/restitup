@@ -1,0 +1,27 @@
+{
+  "name": "restitup",
+  "version": "1.0.0",
+  "description": "Herramienta de Automatizacion de aplicacion REST",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jafi666/restitup.git"
+  },
+  "keywords": [
+    "Diplomado"
+  ],
+  "author": "Jafeth Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jafi666/restitup/issues"
+  },
+  "homepage": "https://github.com/jafi666/restitup#readme"
+}

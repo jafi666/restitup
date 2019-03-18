@@ -1,0 +1,20 @@
+# folders
+
+.idea/
+.vscode/
+node_modules
+logs/
+
+# generic files
+
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+# specific files
+
+package-lock.json
