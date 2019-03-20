@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Herramienta de Automatizacion de aplicacion REST",
   "main": "index.js",
+  "private": true,
   "directories": {
     "example": "examples",
     "lib": "lib",
@@ -23,5 +24,12 @@
   "bugs": {
     "url": "https://github.com/jafi666/restitup/issues"
   },
-  "homepage": "https://github.com/jafi666/restitup#readme"
+  "homepage": "https://github.com/jafi666/restitup#readme",
+  "dependencies": {
+    "log4js": "~4.0.2",
+    "oauth": "~0.9.15",
+    "path-exists": "~3.0.0",
+    "request": "~2.88.0",
+    "through2": "~3.0.1"
+  }
 }
