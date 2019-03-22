@@ -31,5 +31,21 @@
     "path-exists": "~3.0.0",
     "request": "~2.88.0",
     "through2": "~3.0.1"
+  },
+  "devDependencies": {
+    "del": "~4.0.0",
+    "gulp": "~3.9.1",
+    "gulp-apidoc": "~0.2.5",
+    "gulp-eslint": "~3.0.1",
+    "gulp-eslint-if-fixed": "~1.0.0",
+    "gulp-help": "~1.6.1",
+    "gulp-istanbul": "~1.1.3",
+    "gulp-jasmine": "~2.4.2",
+    "gulp-jsdoc3": "~2.0.0",
+    "gulp-util": "~3.0.8",
+    "jasmine-reporters": "~2.3.2",
+    "jasmine-spec-reporter": "~4.2.1",
+    "load-gulp-tasks": "~0.1.0",
+    "minimist": "~1.2.0"
   }
 }

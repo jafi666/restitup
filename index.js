@@ -24,7 +24,7 @@ class Service {
     return through2.obj((file, _, cb) => {
       configuration.appDir = file.path;
       Service.Start(configuration);
-      cb(null, file)
+      cb(null, file);
     });
   }
   /**

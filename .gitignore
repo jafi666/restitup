@@ -6,6 +6,7 @@ node_modules
 logs/
 reports/
 app-docs/
+appdocs/
 # generic files
 
 *.seed

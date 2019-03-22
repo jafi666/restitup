@@ -1,9 +1,12 @@
+/**
+ * @author Jafeth Garcia
+ */
 const del = require('del');
 
 module.exports = function(gulp) {
   gulp.task('clean', 'Clean all workspace', [
     'clean:reports',
-    'clean:app-doc'
+    'clean:appdocs'
   ]);
 
   gulp.task('clean:reports', 'Removes reports directory', function() {
@@ -14,11 +17,11 @@ module.exports = function(gulp) {
     return del(['reports/coverage']);
   });
 
-  gulp.task('clean:reports:api-test', 'Removes api integration test reports files', function() {
-    return del(['reports/api-test']);
+  gulp.task('clean:reports:unit-test', 'Removes api integration test reports files', function() {
+    return del(['reports/unit-test']);
   });
 
-  gulp.task('clean:app-doc', 'Removes app docs files', function() {
-    return del(['app-docs']);
+  gulp.task('clean:appdocs', 'Removes app docs files', function() {
+    return del(['appdocs']);
   });
 };
