@@ -1,6 +1,19 @@
 const Service = require('./../../../index');
 
 describe('Restitup Error Factory module', () => {
+  
+  beforeAll(() => {
+    const options = {
+      apiUrl: 'http://testapi.com',
+      endpointsPath: 'test/test-endpoints',
+      appDir: process.cwd()
+    };
+    Service.Start(options);
+  });
+
+  afterAll(() => {
+    Service._kill();
+  });
 
   it('Should throw native error by passing non exiting error name', (done) => {
     const ErrorFactory = Service.ErrorFactory;

@@ -6,7 +6,8 @@ const through2 = require('through2');
 const { Restitup } = require('./lib/restitup');
 const { ErrorFactory } = require('./lib/error-factory');
 const { Factory } = require('./lib/factory');
-const { HttpStatus } = require('./lib/utils');
+const { HttpStatus } = require('./lib/modules/http-status-code');
+const { Logger } = require('./lib/modules/logger');
 
 let options = require('./lib/options') ;
 let instance = undefined;
@@ -35,8 +36,7 @@ class Service {
   static Start(configuration) {
     if (!instance) {
       options = { ...options, ...configuration };
-      instance = new Restitup(options);
-      Factory.init(instance, options);
+      instance = new Restitup(Factory, options);
     }
   }
   /**
@@ -56,15 +56,44 @@ class Service {
    * @static
    */
   static get ErrorFactory() {
+    if (!instance) {
+      ErrorFactory.throwError('serviceNotStarted');
+    }
     return ErrorFactory;
   }
   /**
    * Gets an object with all htto status code constants.
-   * @returns {Object} the http staute constants object.
+   * @returns {Object} the http state constants object.
    * @static
    */
   static get HttpStatus() {
+    if (!instance) {
+      ErrorFactory.throwError('serviceNotStarted');
+    }
     return HttpStatus;
+  }
+  /**
+   * Gets an object with all htto status code constants.
+   * @returns {Object} the http state constants object.
+   * @static
+   */
+  static get Logger() {
+    if (!instance) {
+      ErrorFactory.throwError('serviceNotStarted');
+    }
+    return Logger.getInstance();
+  }
+  /**
+   * Kills service global instances, requires service to be started again in order to work again.
+   * @returns {void}
+   * @private
+   * @protected
+   */
+  static _kill() {
+    if (instance) {
+      Factory._kill();
+      instance = undefined;
+    }
   }
 }
 
