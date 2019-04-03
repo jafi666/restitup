@@ -14,8 +14,9 @@ describe('Factory component tests', () => {
     done();
   });
 
-  afterAll(() => {
+  afterAll((done) => {
     Service._kill();
+    done();
   });
   
   beforeEach(function(done) {
@@ -51,7 +52,7 @@ describe('Factory component tests', () => {
     });
     const { Restitup, HttpStatus } = Service;
     const UnitTest = Restitup.UnitTest;
-    const {statusCode, data} = await UnitTest.get('/unit-test');
+    const {statusCode, data} = await UnitTest.get();
     expect(statusCode).toEqual(HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
@@ -71,7 +72,7 @@ describe('Factory component tests', () => {
     });
     const { Restitup, HttpStatus } = Service;
     const UnitTest = Restitup.UnitTest;
-    const {statusCode, data} = await UnitTest.post('/unit-test', { unittest });
+    const {statusCode, data} = await UnitTest.post({ unittest });
     expect(statusCode).toEqual(HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
@@ -92,7 +93,7 @@ describe('Factory component tests', () => {
     });
     const { Restitup, HttpStatus } = Service;
     const UnitTest = Restitup.UnitTest;
-    const {statusCode, data} = await UnitTest.patch('/unit-test/2', { unittest });
+    const {statusCode, data} = await UnitTest.patch(2, { unittest });
     expect(statusCode).toEqual(HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
@@ -113,7 +114,7 @@ describe('Factory component tests', () => {
     });
     const { Restitup, HttpStatus } = Service;
     const UnitTest = Restitup.UnitTest;
-    const {statusCode, data} = await UnitTest.put('/unit-test/2', { unittest });
+    const {statusCode, data} = await UnitTest.put(2, { unittest });
     expect(statusCode).toEqual(HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
@@ -134,7 +135,7 @@ describe('Factory component tests', () => {
     });
     const { Restitup, HttpStatus } = Service;
     const UnitTest = Restitup.UnitTest;
-    const {statusCode, data} = await UnitTest.delete('/unit-test/3');
+    const {statusCode, data} = await UnitTest.delete(3);
     expect(statusCode).toEqual(HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);

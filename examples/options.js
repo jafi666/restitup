@@ -8,8 +8,8 @@ module.exports = {
   authorization: {
     strategy: 'oauth1',
     oauth1: {
-      consumerKey: 'b06382cb37b1cf75ba78506f891f013405c621433',
-      consumerSecret: 'c00d645943f0264d336e91c9cebcf621'
+      consumerKey: 'e993008d7985640358536211ff3bc0a305ca417d2',
+      consumerSecret: '1f7f14cd28427f19f31da1e8de7ba01d'
     }
   },
   endpointsPath: 'src/endpoint-objects',
@@ -19,6 +19,7 @@ module.exports = {
         type: 'file',
         filename: 'api-test.log'
       }
-    }
+    },
+    categories: { default: { appenders: ['file'], level: 'debug' } }
   }
 };

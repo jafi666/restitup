@@ -1,4 +1,7 @@
-$Endpoint({ object: 'UnitTest' });
+$Endpoint({ 
+  object: 'UnitTest',
+  resourceUri: '/unit-test'
+});
 module.exports = class UnitTest {
   
 };

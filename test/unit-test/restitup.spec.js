@@ -1,8 +1,9 @@
 const Service = require('./../../index');
 
 describe('resitup main class', () => {
-  afterEach(() => {
+  afterEach((done) => {
     Service._kill();
+    done();
   });
 
   it('Should throw an error getting Restitup without Start service.', (done) => {
