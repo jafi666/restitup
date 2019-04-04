@@ -7,10 +7,11 @@ const { Restitup } = require('./lib/restitup');
 const { ErrorFactory } = require('./lib/error-factory');
 const { Factory } = require('./lib/factory');
 const { HttpStatus } = require('./lib/modules/http-status-code');
-const { Logger } = require('./lib/modules/logger');
+const { asyncSpec, awaitTo } = require('./lib/modules/async-tools');
 
 let options = require('./lib/options') ;
 let instance = undefined;
+let logger = undefined;
 /**
  * Main service class
  * @class
@@ -37,6 +38,7 @@ class Service {
     if (!instance) {
       options = { ...options, ...configuration };
       instance = new Restitup(Factory, options);
+      logger = instance.$logger;
     }
   }
   /**
@@ -62,7 +64,7 @@ class Service {
     return ErrorFactory;
   }
   /**
-   * Gets an object with all htto status code constants.
+   * Gets an object with all http status code constants.
    * @returns {Object} the http state constants object.
    * @static
    */
@@ -73,7 +75,7 @@ class Service {
     return HttpStatus;
   }
   /**
-   * Gets an object with all htto status code constants.
+   * Gets an instance object of Restitup logger.
    * @returns {Object} the http state constants object.
    * @static
    */
@@ -81,7 +83,23 @@ class Service {
     if (!instance) {
       ErrorFactory.throwError('serviceNotStarted');
     }
-    return Logger.getInstance();
+    return logger;
+  }
+  /**
+   * Gets a helper function for unit test callbacks and error handling
+   * @returns {function} the module function
+   * @static
+   */
+  static get asyncSpec() {
+    return asyncSpec;
+  }
+/**
+   * Gets a helper function for async functions, this wraps a promise and catches the possible error.
+   * @returns {function} the module function
+   * @static
+   */
+  static get $to() {
+    return awaitTo;
   }
   /**
    * Kills service global instances, requires service to be started again in order to work again.
@@ -93,6 +111,7 @@ class Service {
     if (instance) {
       Factory._kill();
       instance = undefined;
+      logger = undefined;
     }
   }
 }
