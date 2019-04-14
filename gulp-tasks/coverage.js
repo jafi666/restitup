@@ -29,7 +29,8 @@ const THRESHOLDS_CONFIG = {
 
 module.exports = function(gulp, options, plugins) {
   const sourcePaths = [
-    `${options.config.paths.lib}/**/*.js`
+    `${options.config.paths.lib}/**/*.js`,
+    `!${options.config.paths.lib}/**/async-tools.js`
   ];
   const specsPaths = [
     `${options.config.paths.test}/unit-test/**/*.spec.js`

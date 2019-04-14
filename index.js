@@ -6,8 +6,6 @@ const through2 = require('through2');
 const { Restitup } = require('./lib/restitup');
 const { ErrorFactory } = require('./lib/error-factory');
 const { Factory } = require('./lib/factory');
-const { HttpStatus } = require('./lib/modules/http-status-code');
-const { asyncSpec, awaitTo } = require('./lib/modules/async-tools');
 
 let options = require('./lib/options') ;
 let instance = undefined;

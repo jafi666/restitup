@@ -50,10 +50,11 @@ describe('Factory component tests', () => {
         body: JSON.stringify({ unittest })
       }
     });
-    const { Restitup, HttpStatus } = Service;
+    const { Restitup } = Service;
+    const { $HttpStatus } = Restitup.modules;
     const UnitTest = Restitup.UnitTest;
     const {statusCode, data} = await UnitTest.get();
-    expect(statusCode).toEqual(HttpStatus.OK);
+    expect(statusCode).toEqual($HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
     done();
@@ -70,10 +71,11 @@ describe('Factory component tests', () => {
         body: JSON.stringify({ id: 1, unittest })
       }
     });
-    const { Restitup, HttpStatus } = Service;
+    const { Restitup } = Service;
+    const { $HttpStatus } = Restitup.modules;
     const UnitTest = Restitup.UnitTest;
     const {statusCode, data} = await UnitTest.post({ unittest });
-    expect(statusCode).toEqual(HttpStatus.OK);
+    expect(statusCode).toEqual($HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
     expect(data.id).toBe(1);
@@ -91,10 +93,11 @@ describe('Factory component tests', () => {
         body: JSON.stringify({ id: 2, unittest })
       }
     });
-    const { Restitup, HttpStatus } = Service;
+    const { Restitup } = Service;
+    const { $HttpStatus } = Restitup.modules;
     const UnitTest = Restitup.UnitTest;
     const {statusCode, data} = await UnitTest.patch(2, { unittest });
-    expect(statusCode).toEqual(HttpStatus.OK);
+    expect(statusCode).toEqual($HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
     expect(data.id).toBe(2);
@@ -112,10 +115,11 @@ describe('Factory component tests', () => {
         body: JSON.stringify({ id: 2, unittest })
       }
     });
-    const { Restitup, HttpStatus } = Service;
+    const { Restitup } = Service;
+    const { $HttpStatus } = Restitup.modules;
     const UnitTest = Restitup.UnitTest;
     const {statusCode, data} = await UnitTest.put(2, { unittest });
-    expect(statusCode).toEqual(HttpStatus.OK);
+    expect(statusCode).toEqual($HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
     expect(data.id).toBe(2);
@@ -133,10 +137,11 @@ describe('Factory component tests', () => {
         body: JSON.stringify({ id: 3, unittest })
       }
     });
-    const { Restitup, HttpStatus } = Service;
+    const { Restitup } = Service;
+    const { $HttpStatus } = Restitup.modules;
     const UnitTest = Restitup.UnitTest;
     const {statusCode, data} = await UnitTest.delete(3);
-    expect(statusCode).toEqual(HttpStatus.OK);
+    expect(statusCode).toEqual($HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
     expect(data.id).toBe(3);

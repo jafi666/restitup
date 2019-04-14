@@ -37,10 +37,11 @@ describe('Authorization component tests', () => {
         body: JSON.stringify({ unittest })
       }
     });
-    const { Restitup, HttpStatus } = Service;
+    const { Restitup } = Service;
+    const { $HttpStatus } = Restitup.modules;
     const UnitTest = Restitup.UnitTest;
     const {statusCode, data} = await UnitTest.get();
-    expect(statusCode).toEqual(HttpStatus.OK);
+    expect(statusCode).toEqual($HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
     done();
@@ -70,10 +71,11 @@ describe('Authorization component tests', () => {
         body: JSON.stringify({ unittest })
       }
     });
-    const { Restitup, HttpStatus } = Service;
+    const { Restitup } = Service;
+    const { $HttpStatus } = Restitup.modules;
     const UnitTest = Restitup.UnitTest;
     const {statusCode, data} = await UnitTest.get();
-    expect(statusCode).toEqual(HttpStatus.OK);
+    expect(statusCode).toEqual($HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
     done();
@@ -102,10 +104,11 @@ describe('Authorization component tests', () => {
         body: JSON.stringify({ unittest })
       }
     });
-    const { Restitup, HttpStatus } = Service;
+    const { Restitup } = Service;
+    const { $HttpStatus } = Restitup.modules;
     const UnitTest = Restitup.UnitTest;
     const {statusCode, data} = await UnitTest.get();
-    expect(statusCode).toEqual(HttpStatus.OK);
+    expect(statusCode).toEqual($HttpStatus.OK);
     expect(data).toBeDefined();
     expect(data.unittest).toBe(unittest);
     done();
