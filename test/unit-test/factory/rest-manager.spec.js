@@ -147,4 +147,38 @@ describe('Factory component tests', () => {
     expect(data.id).toBe(3);
     done();
   });
+
+  it('Should call PATCH from endpoint object instance, but with just one result', async (done) => {
+    const unittest = 'unit test updated.';
+    server.on({
+      method: 'GET',
+      path: '/api/unit-test/2',
+      reply: {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ id: 2, unittest })
+      }
+    });
+    const { Restitup } = Service;
+    const { $HttpStatus } = Restitup.modules;
+    const UnitTest = Restitup.UnitTest;
+    const {statusCode, data} = await UnitTest.getOne(2);
+    expect(statusCode).toEqual($HttpStatus.OK);
+    expect(data).toBeDefined();
+    expect(data.unittest).toBe(unittest);
+    expect(data.id).toBe(2);
+    done();
+  });
+
+  it('Should fail calling an incorrect endpoint ', async (done) => {
+    const { Restitup } = Service;
+    const UnitTest = Restitup.UnitTest;
+    try {
+      await UnitTest.getOne(2);
+    } catch (error) {
+      expect(error).toBeDefined();
+      expect(error.message).toContain('Timeout');
+    }
+    done();
+  });
 });

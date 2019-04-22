@@ -62,17 +62,6 @@ class Service {
     return ErrorFactory;
   }
   /**
-   * Gets an object with all http status code constants.
-   * @returns {Object} the http state constants object.
-   * @static
-   */
-  static get HttpStatus() {
-    if (!instance) {
-      ErrorFactory.throwError('serviceNotStarted');
-    }
-    return HttpStatus;
-  }
-  /**
    * Gets an instance object of Restitup logger.
    * @returns {Object} the http state constants object.
    * @static
@@ -82,22 +71,6 @@ class Service {
       ErrorFactory.throwError('serviceNotStarted');
     }
     return logger;
-  }
-  /**
-   * Gets a helper function for unit test callbacks and error handling
-   * @returns {function} the module function
-   * @static
-   */
-  static get asyncSpec() {
-    return asyncSpec;
-  }
-/**
-   * Gets a helper function for async functions, this wraps a promise and catches the possible error.
-   * @returns {function} the module function
-   * @static
-   */
-  static get $to() {
-    return awaitTo;
   }
   /**
    * Kills service global instances, requires service to be started again in order to work again.

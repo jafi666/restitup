@@ -73,4 +73,22 @@ describe('resitup main class', () => {
     expect(Restitup.UnitTest.$logger).toBeTruthy();
     done();
   });
+
+  it('Should initialize Restitup with basic modules on it', (done) => {
+    const options = {
+      apiUrl: 'http://testapi.com',
+      endpointsPath: 'test/test-endpoints',
+      appDir: process.cwd()
+    };
+    Service.Start(options);
+    const { Restitup } = Service;
+    const { $logger, $awaitTo, $asyncSpec, $HttpStatus } = Restitup.modules;
+
+    expect(Restitup).toBeTruthy();
+    expect($logger).toBeDefined();
+    expect($awaitTo).toBeDefined();
+    expect($asyncSpec).toBeDefined();
+    expect($HttpStatus).toBeDefined();
+    done();
+  });
 });
