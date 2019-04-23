@@ -1,6 +1,6 @@
 {
   "name": "restitup",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Herramienta de Automatizacion de aplicacion REST, monografia Diplomado 2018",
   "main": "index.js",
   "private": false,
